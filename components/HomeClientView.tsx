@@ -428,18 +428,24 @@ export default function HomeClientView({
                         <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[10px] text-stone-400">{review.date}</span>
+                    <span className="text-xs font-medium text-stone-400">
+                      {isUrdu ? (review.date_ur || review.date) : (review.date_en || review.date)}
+                    </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed italic">
+                  <p className="text-sm sm:text-base text-stone-800 leading-relaxed">
                     &quot;{isUrdu ? review.comment_ur : review.comment_en}&quot;
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
                   <div>
-                    <h5 className="font-bold text-xs text-stone-900">{review.name}</h5>
-                    <p className="text-[10px] text-stone-400">{review.city}</p>
+                    <h5 className="font-bold text-xs sm:text-sm text-stone-900">
+                      {isUrdu ? (review.name_ur || review.name) : review.name}
+                    </h5>
+                    <p className="text-xs text-stone-500">
+                      {isUrdu ? (review.city_ur || review.city) : review.city}
+                    </p>
                   </div>
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold">
                     <CheckCircle2 className="w-3 h-3" />

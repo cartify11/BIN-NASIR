@@ -123,9 +123,15 @@ export interface CartItem {
 export interface Review {
   id: string;
   name: string;
+  name_en?: string;
+  name_ur?: string;
   city: string;
+  city_en?: string;
+  city_ur?: string;
   rating: number;
   date: string;
+  date_en?: string;
+  date_ur?: string;
   comment_en: string;
   comment_ur: string;
   verified_purchase: boolean;

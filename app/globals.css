@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,12 +21,27 @@ body {
   min-height: 100vh;
 }
 
-/* Urdu Typography Optimization (Noto Nastaliq Urdu) */
+/* Urdu Typography Optimization (Modern, Clean & Ultra-Readable) */
 [dir="rtl"],
 .font-urdu {
-  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, Arial, sans-serif;
-  line-height: 2.1;
+  font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Tahoma, Arial, sans-serif;
+  line-height: 1.85;
   letter-spacing: 0;
+}
+
+/* Nastaliq For Royal Display Titles & Hero Headlines */
+.font-nastaliq,
+[dir="rtl"] .font-serif,
+[dir="rtl"] h1 {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
+  line-height: 1.95;
+}
+
+/* Never italicize Urdu text because Arabic/Urdu cursive distorts when faux-italicized */
+[dir="rtl"] em,
+[dir="rtl"] i,
+[dir="rtl"] .italic {
+  font-style: normal !important;
 }
 
 /* Specific tighter line height for buttons, badges, inputs and compact UI elements in Urdu */

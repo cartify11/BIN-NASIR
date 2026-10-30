@@ -431,18 +431,20 @@ export default function ProductDetailClientView({
               )}
 
               {activeTab === 'reviews' && (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {INITIAL_REVIEWS.slice(0, 2).map((rev) => (
-                    <div key={rev.id} className="pb-2 border-b border-stone-200 last:border-0">
+                    <div key={rev.id} className="pb-3 border-b border-stone-200 last:border-0">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-stone-900">{rev.name} ({rev.city})</span>
+                        <span className="font-bold text-xs sm:text-sm text-stone-900">
+                          {isUrdu ? (rev.name_ur || rev.name) : rev.name} ({isUrdu ? (rev.city_ur || rev.city) : rev.city})
+                        </span>
                         <div className="flex text-amber-400">
                           {[...Array(rev.rating)].map((_, i) => (
                             <Star key={i} className="w-3 h-3 fill-amber-400" />
                           ))}
                         </div>
                       </div>
-                      <p className="mt-1 text-stone-600 italic">
+                      <p className="mt-1.5 text-xs sm:text-sm text-stone-700 leading-relaxed">
                         &quot;{isUrdu ? rev.comment_ur : rev.comment_en}&quot;
                       </p>
                     </div>
