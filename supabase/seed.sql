@@ -7,7 +7,7 @@
 
 -- Insert Categories
 INSERT INTO categories (id, name, slug, image) VALUES
-('c1000000-0000-0000-0000-000000000001', 'Traditional Sweets & Rewri', 'traditional-sweets-rewri', '/images/peanut-rewri.jpg'),
+('c1000000-0000-0000-0000-000000000001', 'Traditional Sweets & Rewri', 'traditional-sweets-rewri', '/images/peanut-rewri-main.webp'),
 ('c1000000-0000-0000-0000-000000000002', 'Pure Honey & Syrups', 'pure-honey-syrups', '/images/honey-main.jpg'),
 ('c1000000-0000-0000-0000-000000000003', 'Herbal & Health Supplements', 'herbal-health-supplements', '/images/shilajit-main.webp')
 ON CONFLICT (slug) DO UPDATE SET 
@@ -18,12 +18,12 @@ ON CONFLICT (slug) DO UPDATE SET
 INSERT INTO products (id, name, slug, description, price, compare_at_price, images, category_id, stock, is_active) VALUES
 (
     'p1000000-0000-0000-0000-000000000001',
-    'Special Peanut Rewri (خالص مونگ پھلی کی ریوڑی) - 500g',
+    'Special Peanut Rewri (خاص مونگ پھلی کی ریوڑی) - 250g / 500g',
     'special-peanut-rewri',
-    'خالص مونگ پھلی، گڑ اور تل سے تیار کردہ روایتی خستہ اور لذیذ ریوڑی۔ 100% قدرتی اجزاء اور بغیر کسی کیمیکل کے تیار کردہ۔ توانائی اور ذائقے کا بہترین سنگم۔ Authentic Bin Nasir Peanut Rewri.',
+    'چکوال کی روایتی ترکیب سے تیار کردہ خالص مونگ پھلی کی ریوڑی۔ اعلٰی کوالٹی کی بھنی ہوئی دیسی مونگ پھلی، سفید تل اور اصلی دیسی گڑ۔ Authentic Chakwal style handcrafted crispy peanut rewri.',
     850.00,
     1100.00,
-    ARRAY['/images/peanut-rewri.jpg', '/images/banner.jpg'],
+    ARRAY['/images/peanut-rewri-main.webp', '/images/peanut-rewri-2.webp', '/images/peanut-rewri-3.jpg', '/images/peanut-rewri-4.webp'],
     'c1000000-0000-0000-0000-000000000001',
     50,
     true

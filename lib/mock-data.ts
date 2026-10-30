@@ -8,7 +8,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name_en: 'Traditional Sweets & Rewri',
     name_ur: 'روایتی ریوڑی اور سوغات',
     slug: 'traditional-sweets-rewri',
-    image: '/images/peanut-rewri.jpg',
+    image: '/images/peanut-rewri-main.webp',
   },
   {
     id: 'c1000000-0000-0000-0000-000000000002',
@@ -36,14 +36,14 @@ export const INITIAL_PRODUCTS: Product[] = [
     name_ur: 'خاص مونگ پھلی کی ریوڑی',
     slug: 'special-peanut-rewri',
     description:
-      'Handcrafted crispy rewri prepared with organic jaggery (gur), premium roasted peanuts, and white sesame seeds. 100% natural energy snack with zero chemical additives.',
+      'Handcrafted authentic Chakwal-style crispy Peanut Rewri prepared with premium slow-roasted peanuts, natural sugarcane jaggery (gur), and aromatic white sesame seeds. 100% natural energy snack with zero artificial sugar, zero preservatives, and zero chemical additives.',
     description_en:
-      'Handcrafted crispy rewri prepared with organic jaggery (gur), premium roasted peanuts, and white sesame seeds. 100% natural energy snack with zero chemical additives.',
+      'Handcrafted authentic Chakwal-style crispy Peanut Rewri prepared with premium slow-roasted peanuts, natural sugarcane jaggery (gur), and aromatic white sesame seeds. 100% natural energy snack with zero artificial sugar, zero preservatives, and zero chemical additives.',
     description_ur:
-      'خالص مونگ پھلی، دیسی گڑ اور سفید تل سے تیار کردہ روایتی خستہ اور لذیذ ریوڑی۔ 100% قدرتی اجزاء اور بغیر کسی کیمیکل کے تیار کردہ۔ توانائی اور روایتی ذائقے کا بہترین سنگم۔',
+      'چکوال کی صدیوں پرانی روایتی ترکیب سے تیار کردہ خالص مونگ پھلی کی خستہ اور لذیذ ریوڑی۔ اعلٰی کوالٹی کی بھنی ہوئی دیسی مونگ پھلی، سفید تل اور اصلی دیسی گڑ کے شیرے میں تیار شدہ۔ بغیر کسی مصنوعی چینی، کیمیکل یا پرزرویٹو کے۔ چائے اور قہوہ کا بہترین ساتھی اور روایتی سوغات۔',
     price: 850,
     compare_at_price: 1100,
-    images: ['/images/peanut-rewri.jpg', '/images/banner.jpg', '/images/bag-catalog.jpg'],
+    images: ['/images/peanut-rewri-main.webp', '/images/peanut-rewri-2.webp', '/images/peanut-rewri-3.jpg', '/images/peanut-rewri-4.webp'],
     category_id: 'c1000000-0000-0000-0000-000000000001',
     stock: 50,
     is_active: true,
@@ -51,9 +51,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     badge_en: 'Bestseller',
     badge_ur: 'سب سے زیادہ مقبول',
     variants: [
-      { id: 'v1-1', label_en: '500 Grams Pack', label_ur: '500 گرام پیک', weight: '500g', price: 850, compare_at_price: 1100, stock: 50 },
-      { id: 'v1-2', label_en: '1 KG Family Pack', label_ur: '1 کلو فیملی پیک', weight: '1kg', price: 1600, compare_at_price: 2100, stock: 35 },
-      { id: 'v1-3', label_en: '2 KG Gift Tin', label_ur: '2 کلو تحفہ پیک', weight: '2kg', price: 3100, compare_at_price: 4000, stock: 20 },
+      { id: 'v1-1', label_en: '250g Pouch', label_ur: '250 گرام پاؤچ', weight: '250g', price: 450, compare_at_price: 600, stock: 50 },
+      { id: 'v1-2', label_en: '500g Pack', label_ur: '500 گرام پیک', weight: '500g', price: 850, compare_at_price: 1100, stock: 45 },
+      { id: 'v1-3', label_en: '1 KG Family Pack', label_ur: '1 کلو فیملی پیک', weight: '1kg', price: 1600, compare_at_price: 2100, stock: 35 },
+      { id: 'v1-4', label_en: '2 KG Gift Tin', label_ur: '2 کلو تحفہ پیک', weight: '2kg', price: 3100, compare_at_price: 4000, stock: 20 },
     ],
     ingredients_en: 'Roasted Golden Peanuts, Pure Desi Gur (Sugarcane Jaggery), White Sesame Seeds, Organic Desi Ghee essence.',
     ingredients_ur: 'بھنی ہوئی دیسی مونگ پھلی، خالص دیسی گڑ، قدرتی سفید تل، اور اصلی دیسی گھی۔',

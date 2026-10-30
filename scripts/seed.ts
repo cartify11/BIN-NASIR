@@ -15,7 +15,7 @@ const categories = [
     id: 'c1000000-0000-0000-0000-000000000001',
     name: 'Traditional Sweets & Rewri',
     slug: 'traditional-sweets-rewri',
-    image: '/images/peanut-rewri.jpg'
+    image: '/images/peanut-rewri-main.webp'
   },
   {
     id: 'c1000000-0000-0000-0000-000000000002',
@@ -34,12 +34,12 @@ const categories = [
 const products = [
   {
     id: 'p1000000-0000-0000-0000-000000000001',
-    name: 'Special Peanut Rewri (خالص مونگ پھلی کی ریوڑی) - 500g',
+    name: 'Special Peanut Rewri (خاص مونگ پھلی کی ریوڑی) - 250g / 500g',
     slug: 'special-peanut-rewri',
-    description: 'خالص مونگ پھلی، گڑ اور تل سے تیار کردہ روایتی خستہ اور لذیذ ریوڑی۔ 100% قدرتی اجزاء اور بغیر کسی کیمیکل کے تیار کردہ۔ توانائی اور ذائقے کا بہترین سنگم۔ Authentic Bin Nasir Peanut Rewri.',
+    description: 'چکوال کی روایتی ترکیب سے تیار کردہ خالص مونگ پھلی کی ریوڑی۔ اعلٰی کوالٹی کی بھنی ہوئی دیسی مونگ پھلی، سفید تل اور اصلی دیسی گڑ۔ Authentic Chakwal style handcrafted crispy peanut rewri.',
     price: 850,
     compare_at_price: 1100,
-    images: ['/images/peanut-rewri.jpg', '/images/banner.jpg'],
+    images: ['/images/peanut-rewri-main.webp', '/images/peanut-rewri-2.webp', '/images/peanut-rewri-3.jpg', '/images/peanut-rewri-4.webp'],
     category_id: 'c1000000-0000-0000-0000-000000000001',
     stock: 50,
     is_active: true
