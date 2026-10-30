@@ -8,7 +8,7 @@
 -- Insert Categories
 INSERT INTO categories (id, name, slug, image) VALUES
 ('c1000000-0000-0000-0000-000000000001', 'Traditional Sweets & Rewri', 'traditional-sweets-rewri', '/images/peanut-rewri.jpg'),
-('c1000000-0000-0000-0000-000000000002', 'Pure Honey & Syrups', 'pure-honey-syrups', '/images/banner.jpg'),
+('c1000000-0000-0000-0000-000000000002', 'Pure Honey & Syrups', 'pure-honey-syrups', '/images/honey-main.jpg'),
 ('c1000000-0000-0000-0000-000000000003', 'Herbal & Health Supplements', 'herbal-health-supplements', '/images/bag-catalog.jpg')
 ON CONFLICT (slug) DO UPDATE SET 
     name = EXCLUDED.name,
@@ -35,7 +35,7 @@ INSERT INTO products (id, name, slug, description, price, compare_at_price, imag
     'قدرت کا نایاب تحفہ، 100% خالص اور قدرتی بیری کا شہد۔ گلے، کھانسی اور قوتِ مدافعت میں اضافے کے لیے بے حد مفید۔ Original wild Sidr Honey packed with natural enzymes and aroma.',
     2950.00,
     3500.00,
-    ARRAY['/images/banner.jpg', '/images/bag-catalog.jpg'],
+    ARRAY['/images/honey-main.jpg', '/images/honey-2.jpg', '/images/honey-3.jpg'],
     'c1000000-0000-0000-0000-000000000002',
     35,
     true

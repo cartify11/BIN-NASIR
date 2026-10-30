@@ -21,7 +21,7 @@ const categories = [
     id: 'c1000000-0000-0000-0000-000000000002',
     name: 'Pure Honey & Syrups',
     slug: 'pure-honey-syrups',
-    image: '/images/banner.jpg'
+    image: '/images/honey-main.jpg'
   },
   {
     id: 'c1000000-0000-0000-0000-000000000003',
@@ -51,7 +51,7 @@ const products = [
     description: 'قدرت کا نایاب تحفہ، 100% خالص اور قدرتی بیری کا شہد۔ گلے، کھانسی اور قوتِ مدافعت میں اضافے کے لیے بے حد مفید۔ Original wild Sidr Honey packed with natural enzymes and aroma.',
     price: 2950,
     compare_at_price: 3500,
-    images: ['/images/banner.jpg', '/images/bag-catalog.jpg'],
+    images: ['/images/honey-main.jpg', '/images/honey-2.jpg', '/images/honey-3.jpg'],
     category_id: 'c1000000-0000-0000-0000-000000000002',
     stock: 35,
     is_active: true
