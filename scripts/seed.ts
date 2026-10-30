@@ -27,7 +27,7 @@ const categories = [
     id: 'c1000000-0000-0000-0000-000000000003',
     name: 'Herbal & Health Supplements',
     slug: 'herbal-health-supplements',
-    image: '/images/bag-catalog.jpg'
+    image: '/images/shilajit-main.webp'
   }
 ];
 
@@ -60,10 +60,10 @@ const products = [
     id: 'p1000000-0000-0000-0000-000000000003',
     name: 'Pure Himalayan Shilajit (خالص ہمالیائی سلاجیت) - 30g Soft Resin',
     slug: 'pure-himalayan-shilajit',
-    description: 'ہمالیہ اور قراقرم کے پہاڑوں سے حاصل کردہ 100% مصفی اور اصلی سلاجیت۔ جسمانی توانائی، طاقت، جوڑوں کے درد اور کمزوری دور کرنے کے لیے صدیوں کا آزمودہ نسخہ۔ Gold grade purified Shilajit resin.',
+    description: '100% pure gold-grade Himalayan Shilajit resin wild-harvested from high-altitude peaks (16,000+ ft) in Chitral and Karakoram. Packed with 84+ ionic trace minerals and 70%+ fulvic acid to revitalize stamina, vitality, and joint health. 100% قدرتی مصفی گولڈ گریڈ سلاجیت ریزن۔',
     price: 2450,
     compare_at_price: 3200,
-    images: ['/images/banner.jpg', '/images/bag-catalog.jpg'],
+    images: ['/images/shilajit-main.webp', '/images/shilajit-2.jpg', '/images/shilajit-3.jpg', '/images/shilajit-4.webp'],
     category_id: 'c1000000-0000-0000-0000-000000000003',
     stock: 25,
     is_active: true

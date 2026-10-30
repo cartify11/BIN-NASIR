@@ -24,7 +24,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name_en: 'Herbal Wellness & Tonics',
     name_ur: 'ہربل و قدرتی فارمولہ',
     slug: 'herbal-health-supplements',
-    image: '/images/bag-catalog.jpg',
+    image: '/images/shilajit-main.webp',
   },
 ];
 
@@ -119,14 +119,14 @@ export const INITIAL_PRODUCTS: Product[] = [
     name_ur: 'خالص ہمالیائی سلاجیت',
     slug: 'pure-himalayan-shilajit',
     description:
-      'Gold-grade purified Shilajit resin extracted from the high peaks of the Himalayas. Packed with 84+ ionic trace minerals and fulvic acid to revitalize stamina, vitality, and joint health.',
+      '100% pure gold-grade Himalayan Shilajit resin wild-harvested from high-altitude peaks (16,000+ ft) in Chitral and Karakoram ranges. Packed with 84+ ionic trace minerals, fulvic acid (70%+), and humic compounds to boost vitality, stamina, and natural strength. Lab-tested and certified pure.',
     description_en:
-      'Gold-grade purified Shilajit resin extracted from the high peaks of the Himalayas. Packed with 84+ ionic trace minerals and fulvic acid to revitalize stamina, vitality, and joint health.',
+      '100% pure gold-grade Himalayan Shilajit resin wild-harvested from high-altitude peaks (16,000+ ft) in Chitral and Karakoram ranges. Packed with 84+ ionic trace minerals, fulvic acid (70%+), and humic compounds to boost vitality, stamina, and natural strength. Lab-tested and certified pure.',
     description_ur:
-      'ہمالیہ اور قراقرم کے پہاڑوں سے حاصل کردہ 100% مصفی اور اصلی سلاجیت۔ جسمانی توانائی، طاقت، جوڑوں کے درد اور کمزوری دور کرنے کے لیے صدیوں کا آزمودہ نسخہ۔ گولڈ گریڈ سلاجیت ریزن۔',
+      'ہمالیہ، قراقرم اور چترال کی 16,000 فٹ بلند چوٹیوں سے حاصل کردہ 100% قدرتی مصفی گولڈ گریڈ سلاجیت ریزن۔ 84 سے زائد نامیاتی منرلز اور 70%+ فلوک ایسڈ سے بھرپور۔ مردانہ و جسمانی طاقت میں اضافہ، جوڑوں کے درد سے نجات، اعصابی کمزوری کا خاتمہ، اور مدافعت کی مضبوطی کے لیے صدیوں کا آزمودہ اکسیر۔ بغیر کسی کیمیکل، ملاوٹ یا مصنوعی اضافے کے۔',
     price: 2450,
     compare_at_price: 3200,
-    images: ['/images/bag-catalog.jpg', '/images/banner.jpg'],
+    images: ['/images/shilajit-main.webp', '/images/shilajit-2.jpg', '/images/shilajit-3.jpg', '/images/shilajit-4.webp'],
     category_id: 'c1000000-0000-0000-0000-000000000003',
     stock: 25,
     is_active: true,
@@ -336,7 +336,7 @@ export const INITIAL_BUNDLES: BundleOffer[] = [
     badge_ur: '600 روپے بچت',
     price: 3500,
     original_price: 4100,
-    image: '/images/honey-main.jpg',
+    image: '/images/shilajit-main.webp',
     items_en: ['Pure Himalayan Shilajit 30g', 'Pure Sidr Honey 500g'],
     items_ur: ['خالص ہمالیائی سلاجیت 30 گرام', 'خالص بیری کا شہد 500 گرام'],
     product_ids: ['p1000000-0000-0000-0000-000000000003', 'p1000000-0000-0000-0000-000000000002'],
