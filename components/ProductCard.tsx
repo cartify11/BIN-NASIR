@@ -111,7 +111,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <div className="grid grid-cols-2 gap-2 pt-3">
             <button
               onClick={handleAddToCart}
-              className={`py-2 px-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 ${
+              className={`py-2.5 px-1.5 sm:px-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1 sm:gap-1.5 transition active:scale-95 ${
                 added
                   ? 'bg-emerald-600 text-white'
                   : 'bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300'
@@ -119,23 +119,23 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             >
               {added ? (
                 <>
-                  <Check className="w-3.5 h-3.5" />
-                  <span className="truncate">{t.addedToCart}</span>
+                  <Check className="w-3.5 h-3.5 shrink-0" />
+                  <span className="whitespace-nowrap text-[11px] sm:text-xs leading-none">{t.addedToCart}</span>
                 </>
               ) : (
                 <>
-                  <ShoppingBag className="w-3.5 h-3.5" />
-                  <span className="truncate">{t.addToCart}</span>
+                  <ShoppingBag className="w-3.5 h-3.5 shrink-0 text-amber-800" />
+                  <span className="whitespace-nowrap text-[11px] sm:text-xs leading-none">{t.addToCart}</span>
                 </>
               )}
             </button>
 
             <Link
               href={`/product/${product.slug}`}
-              className="py-2 px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm transition active:scale-95 text-center"
+              className="py-2.5 px-1.5 sm:px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm transition active:scale-95 text-center"
             >
               <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300 shrink-0" />
-              <span className="truncate">{t.buyNowCod}</span>
+              <span className="whitespace-nowrap text-[11px] sm:text-xs leading-none">{t.buyNowCod}</span>
             </Link>
           </div>
         </div>

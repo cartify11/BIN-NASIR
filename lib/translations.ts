@@ -433,9 +433,9 @@ export const translations: Record<Language, Translations> = {
     // Best Sellers Section
     bestSellersHeading: 'ہمارے سب سے مقبول پراڈکٹس',
     bestSellersSubtitle: 'پاکستانی خاندانوں کی سب سے پسندیدہ اور روزانہ بکنے والی روایتی سوغاتیں۔',
-    addToCart: 'کارٹ میں شامل کریں',
-    addedToCart: 'شامل کر دیا گیا ✓',
-    buyNowCod: 'ابھی خریدیں (کیش آن ڈلیوری)',
+    addToCart: 'کارٹ میں شامل',
+    addedToCart: 'شامل ہو گیا ✓',
+    buyNowCod: 'ابھی خریدیں',
     inStock: 'اسٹاک میں دستیاب ہے',
     saveAmount: 'بچت',
 
@@ -496,8 +496,8 @@ export const translations: Record<Language, Translations> = {
     faqTabTitle: 'اہم سوالات',
     reviewsTabTitle: 'صارفین کی رائے',
     relatedHeading: 'دیگر متعلقہ پراڈکٹس',
-    stickyAddToCart: 'کارٹ میں شامل کریں',
-    stickyBuyNow: 'ابھی خریدیں (کیش آن ڈلیوری)',
+    stickyAddToCart: 'کارٹ میں شامل',
+    stickyBuyNow: 'ابھی خریدیں',
 
     // Cart
     cartTitle: 'شاپنگ کارٹ',
