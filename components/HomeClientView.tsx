@@ -52,7 +52,7 @@ export default function HomeClientView({ categories, products }: HomeClientViewP
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight leading-[1.18]">
                 {t.heroTitle1}{' '}
-                <span className="text-amber-400 underline decoration-amber-500/40 decoration-wavy underline-offset-8">
+                <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-400 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
                   {t.heroTitleHighlight}
                 </span>
               </h1>
