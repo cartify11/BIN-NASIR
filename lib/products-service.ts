@@ -81,5 +81,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     }
   }
 
-  return INITIAL_PRODUCTS.find((p) => p.slug === slug) || null;
+  return (
+    INITIAL_PRODUCTS.find((p) => p.slug === slug) ||
+    (slug === 'royal-desi-ghee-panjeeri'
+      ? INITIAL_PRODUCTS.find((p) => p.slug === 'pure-organic-desi-ghee')
+      : null) ||
+    null
+  );
 }

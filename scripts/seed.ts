@@ -70,12 +70,12 @@ const products = [
   },
   {
     id: 'p1000000-0000-0000-0000-000000000004',
-    name: 'Royal Desi Ghee Panjeeri (شاہی دیسی گھی پنجیری) - 500g',
-    slug: 'royal-desi-ghee-panjeeri',
-    description: 'خالص دیسی گھی، بادام، اخروٹ، پستہ، چار مغز اور گوند کتیرا کے ساتھ تیار کردہ روایتی پنجیری۔ پٹھوں اور کمر کے درد میں اکسیر اور خواتین و بزرگوں کے لیے طاقت کا خزانہ۔',
+    name: 'Pure Organic Desi Ghee (خالص دانہ دار دیسی گھی) - 500g / 1kg',
+    slug: 'pure-organic-desi-ghee',
+    description: '100% خالص اور روایتی طریقے سے تیار کردہ دانہ دار دیسی گھی۔ اشتہا انگیز خوشبو اور ذائقے سے بھرپور۔ 100% pure grass-fed danedaar Desi Ghee.',
     price: 1650,
     compare_at_price: 2100,
-    images: ['/images/bag-catalog.jpg', '/images/peanut-rewri.jpg'],
+    images: ['/images/desi-ghee-main.webp', '/images/desi-ghee-2.webp', '/images/desi-ghee-3.jpg', '/images/desi-ghee-4.webp'],
     category_id: 'c1000000-0000-0000-0000-000000000001',
     stock: 40,
     is_active: true
