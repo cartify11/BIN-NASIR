@@ -29,6 +29,7 @@ export const orderItemSchema = z.object({
   price: z.number().positive('Price must be positive'),
   quantity: z.number().int().positive('Quantity must be at least 1'),
   image: z.string().optional(),
+  variant_label: z.string().optional(),
 });
 
 export const createOrderSchema = z.object({
@@ -53,10 +54,11 @@ export const createOrderSchema = z.object({
     .trim()
     .min(5, 'Please provide a complete delivery address (street/house/area)'),
   notes: z.string().trim().max(500, 'Notes are too long').optional().nullable(),
-  payment_method: z.enum(['cod', 'bank_transfer']).default('cod'),
+  payment_method: z.enum(['cod', 'advance', 'bank_transfer']).default('cod'),
+  payment_proof_url: z.string().optional().nullable(),
+  coupon_code: z.string().optional().nullable(),
+  discount_amount: z.number().min(0).optional().default(0),
   items: z
     .array(orderItemSchema)
     .min(1, 'At least one product item is required in the order'),
 });
-
-export type CreateOrderInput = z.infer<typeof createOrderSchema>;

@@ -3,191 +3,236 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShoppingBag, Phone, Menu, X, ShieldCheck, Globe } from 'lucide-react';
+import {
+  ShoppingBag,
+  Phone,
+  Menu,
+  X,
+  Search,
+  Truck,
+  HelpCircle,
+  Info,
+  PhoneCall,
+  Sparkles,
+} from 'lucide-react';
 import { useCart } from '@/lib/cart-context';
 import { useLanguage } from '@/lib/language-context';
+import AnnouncementBar from '@/components/AnnouncementBar';
+import SearchModal from '@/components/SearchModal';
 
 export default function Navbar() {
   const { totalItems, isMounted } = useCart();
-  const { lang, setLang, toggleLang, t, isUrdu } = useLanguage();
+  const { lang, t, isUrdu } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-sm">
+    <>
       {/* Top Announcement Bar */}
-      <div className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 text-amber-50 text-[11px] sm:text-xs py-1.5 px-3 font-medium">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-1.5">
-          <div className="flex items-center gap-1.5 mx-auto sm:mx-0">
-            <ShieldCheck className="w-3.5 h-3.5 text-amber-300 flex-shrink-0" />
-            <span className="truncate max-w-[280px] sm:max-w-none">{t.announcement}</span>
-          </div>
+      <AnnouncementBar />
 
-          <div className="hidden sm:flex items-center gap-4">
-            <span>{t.freeShippingNotice}</span>
-            <a
-              href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-amber-200 transition font-semibold"
-            >
-              <Phone className="w-3 h-3" />
-              <span>0300-1788080</span>
-            </a>
+      <header className="sticky top-0 z-40 bg-stone-950/95 text-white backdrop-blur-md border-b border-amber-900/30 shadow-md transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Left: Mobile Menu Button & Brand Logo */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setMobileMenuOpen(true)}
+                className="md:hidden p-2 rounded-xl text-amber-200 hover:text-white hover:bg-white/10 transition"
+                aria-label="Open Navigation Menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+
+              <Link href="/" className="flex items-center gap-3 group">
+                <div className="relative w-11 sm:w-14 h-11 sm:h-14 transition-transform group-hover:scale-105 shrink-0">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Bin Nasir Official Traditional Sweets & Pure Foods"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl sm:text-2xl font-black tracking-tight text-white font-serif-luxury uppercase">
+                    BIN NASIR
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-amber-400 font-semibold tracking-wider uppercase">
+                    {isUrdu ? 'خالص روایتی سوغاتیں و ہربل شفا' : 'Pure Traditional Delights'}
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            {/* Center: Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-stone-200">
+              <Link href="/" className="hover:text-amber-400 transition">
+                {t.home}
+              </Link>
+              <Link href="/shop" className="hover:text-amber-400 transition">
+                {t.allProducts}
+              </Link>
+              <Link href="/track-order" className="hover:text-amber-400 transition flex items-center gap-1.5">
+                <Truck className="w-4 h-4 text-amber-400" />
+                <span>{t.trackOrder}</span>
+              </Link>
+              <Link href="/about" className="hover:text-amber-400 transition">
+                {t.aboutUs}
+              </Link>
+              <Link href="/faq" className="hover:text-amber-400 transition">
+                {t.faqs}
+              </Link>
+              <Link href="/contact" className="hover:text-amber-400 transition">
+                {t.contactUs}
+              </Link>
+            </nav>
+
+            {/* Right: Search, WhatsApp & Cart */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Search Trigger Button */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="p-2 sm:px-3 sm:py-2 rounded-xl text-stone-300 hover:text-white hover:bg-white/10 transition flex items-center gap-2 text-xs font-medium"
+                aria-label="Search Products"
+              >
+                <Search className="w-5 h-5 text-amber-400" />
+                <span className="hidden sm:inline text-stone-300">{isUrdu ? 'تلاش کریں' : 'Search'}</span>
+              </button>
+
+              {/* Direct WhatsApp Action (Desktop) */}
+              <a
+                href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir%2C%20mujhe%20order%20karna%20hai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 text-xs font-bold transition"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+                <span>0300-1788080</span>
+              </a>
+
+              {/* Cart Button */}
+              <Link
+                href="/cart"
+                className="relative p-2.5 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                <span className="hidden sm:inline text-xs">{t.cart}</span>
+                {isMounted && totalItems > 0 && (
+                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-stone-950 text-amber-300 text-[11px] font-black">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo / Brand Name */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
-            <div className="relative w-10 sm:w-12 h-12 sm:h-14 transition-transform group-hover:scale-105 flex-shrink-0">
-              <Image
-                src="/images/logo.png"
-                alt="Bin Nasir Official Logo"
-                fill
-                priority
-                className="object-contain"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-gray-900 font-serif">
-                BIN NASIR
-              </span>
-              <span className="text-[9px] sm:text-[10px] text-amber-700 font-semibold tracking-wide">
-                {isUrdu ? 'روایتی ذائقہ و قدرتی شفا' : 'Traditional Taste • Modern Life'}
-              </span>
-            </div>
-          </Link>
+      {/* Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-7 rtl:space-x-reverse text-sm font-medium text-gray-700">
-            <Link href="/" className="hover:text-amber-700 transition">
-              {t.home}
-            </Link>
-            <Link href="/shop" className="hover:text-amber-700 transition">
-              {t.allProducts}
-            </Link>
-            <Link href="/shop?category=traditional-sweets-rewri" className="hover:text-amber-700 transition">
-              {t.rewriCategory}
-            </Link>
-            <Link href="/shop?category=pure-honey-syrups" className="hover:text-amber-700 transition">
-              {t.honeyCategory}
-            </Link>
-            <Link href="/shop?category=herbal-health-supplements" className="hover:text-amber-700 transition">
-              {t.shilajitCategory}
-            </Link>
-          </nav>
-
-          {/* Right Actions: Language Switcher, Cart & WhatsApp */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Language Toggle Button */}
-            <button
-              onClick={toggleLang}
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 transition shadow-sm active:scale-95"
-              title="Switch Language (اردو / English)"
-            >
-              <Globe className="w-3.5 h-3.5 text-amber-700" />
-              <span>{isUrdu ? 'English' : 'اردو'}</span>
-            </button>
-
-            <a
-              href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-200 hover:bg-green-100 transition"
-            >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              {t.whatsappOrder}
-            </a>
-
-            <Link
-              href="/cart"
-              className="relative p-2 text-gray-700 hover:text-amber-600 transition"
-              aria-label="Shopping Cart"
-            >
-              <ShoppingBag className="w-6 h-6" />
-              {isMounted && totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-600 text-white font-bold text-xs rounded-full w-5 h-5 flex items-center justify-center animate-scale-in">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-
-            {/* Mobile Menu Toggle Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 md:hidden text-gray-700 hover:text-amber-600"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 pt-2 pb-6 space-y-3">
-          <Link
-            href="/"
+        <div className="fixed inset-0 z-50 lg:hidden">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-gray-800 font-medium hover:text-amber-600"
-          >
-            {t.home}
-          </Link>
-          <Link
-            href="/shop"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-gray-800 font-medium hover:text-amber-600"
-          >
-            {t.allProducts}
-          </Link>
-          <Link
-            href="/shop?category=traditional-sweets-rewri"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-gray-800 font-medium hover:text-amber-600"
-          >
-            {t.rewriCategory}
-          </Link>
-          <Link
-            href="/shop?category=pure-honey-syrups"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-gray-800 font-medium hover:text-amber-600"
-          >
-            {t.honeyCategory}
-          </Link>
-          <Link
-            href="/shop?category=herbal-health-supplements"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-gray-800 font-medium hover:text-amber-600"
-          >
-            {t.shilajitCategory}
-          </Link>
+          />
 
-          <div className="pt-2 border-t border-gray-100 flex items-center justify-between gap-3">
-            <button
-              onClick={() => {
-                toggleLang();
-                setMobileMenuOpen(false);
-              }}
-              className="flex-1 py-2 px-3 rounded-xl bg-amber-50 text-amber-900 border border-amber-300 font-bold text-xs flex items-center justify-center gap-1.5"
-            >
-              <Globe className="w-4 h-4 text-amber-700" />
-              <span>Language: {isUrdu ? 'Switch to English' : 'اردو میں دیکھیں'}</span>
-            </button>
-            <a
-              href="https://wa.me/923001788080"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-2 px-4 rounded-xl bg-green-600 text-white font-semibold text-xs flex items-center justify-center"
-            >
-              WhatsApp
-            </a>
+          {/* Drawer Content */}
+          <div
+            className={`fixed inset-y-0 ${
+              isUrdu ? 'right-0' : 'left-0'
+            } w-4/5 max-w-sm bg-stone-950 text-white shadow-2xl p-6 flex flex-col justify-between border-l border-amber-900/30 z-50`}
+          >
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                <div className="flex items-center gap-2.5">
+                  <div className="relative w-9 h-9">
+                    <Image src="/images/logo.png" alt="Bin Nasir" fill className="object-contain" />
+                  </div>
+                  <span className="font-serif-luxury font-black text-lg text-amber-300">BIN NASIR</span>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-stone-400 hover:text-white"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Navigation Items */}
+              <nav className="flex flex-col space-y-3 text-base font-semibold">
+                <Link
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition"
+                >
+                  {t.home}
+                </Link>
+                <Link
+                  href="/shop"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition"
+                >
+                  {t.allProducts}
+                </Link>
+                <Link
+                  href="/track-order"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition flex items-center gap-2"
+                >
+                  <Truck className="w-4 h-4 text-amber-400" />
+                  <span>{t.trackOrder}</span>
+                </Link>
+                <Link
+                  href="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition flex items-center gap-2"
+                >
+                  <Info className="w-4 h-4 text-amber-400" />
+                  <span>{t.aboutUs}</span>
+                </Link>
+                <Link
+                  href="/faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition flex items-center gap-2"
+                >
+                  <HelpCircle className="w-4 h-4 text-amber-400" />
+                  <span>{t.faqs}</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 rounded-xl hover:bg-white/10 hover:text-amber-400 transition flex items-center gap-2"
+                >
+                  <Phone className="w-4 h-4 text-amber-400" />
+                  <span>{t.contactUs}</span>
+                </Link>
+              </nav>
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="pt-6 border-t border-white/10 space-y-3">
+              <a
+                href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-900/30"
+              >
+                <PhoneCall className="w-4 h-4" />
+                <span>WhatsApp: 0300-1788080</span>
+              </a>
+              <p className="text-center text-xs text-stone-400">
+                {isUrdu ? 'پورے پاکستان میں کیش آن ڈلیوری' : 'Cash on Delivery Nationwide'}
+              </p>
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
