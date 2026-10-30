@@ -76,12 +76,12 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-11 h-12 bg-white/10 rounded-xl p-1 border border-amber-500/20 shrink-0">
+              <div className="relative w-12 h-14 shrink-0">
                 <Image
                   src="/images/logo.png"
                   alt="Bin Nasir Official Traditional Sweets"
                   fill
-                  className="object-contain p-0.5"
+                  className="object-contain"
                 />
               </div>
               <div>
