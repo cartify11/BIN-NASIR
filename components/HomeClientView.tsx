@@ -13,7 +13,7 @@ import {
   CheckCircle2,
   Truck,
   PhoneCall,
-  Sparkles,
+  Banknote,
   ChevronDown,
   Gift,
   HelpCircle,
@@ -93,8 +93,7 @@ export default function HomeClientView({
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-start">
               {/* Premium Heritage Pill */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-wider uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-wider uppercase">
                 <span>{t.heroBadge}</span>
               </div>
 
@@ -221,7 +220,7 @@ export default function HomeClientView({
 
           <div className="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-lg shadow-stone-200/40 flex items-start gap-4">
             <div className="p-3 rounded-xl bg-amber-50 text-amber-800 shrink-0">
-              <Sparkles className="w-6 h-6" />
+              <Banknote className="w-6 h-6" />
             </div>
             <div>
               <h4 className="font-bold text-sm text-stone-900">{t.trustCodTitle}</h4>
