@@ -1,53 +1,55 @@
 'use client';
 
 import React from 'react';
-import { Sparkles, Phone, ShieldCheck } from 'lucide-react';
+import { Sparkles, Truck, ShieldCheck, Gift, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/lib/language-context';
 
 export default function AnnouncementBar() {
-  const { lang, setLang, t, isUrdu } = useLanguage();
+  const { isUrdu } = useLanguage();
+
+  const itemsUrdu = [
+    { icon: Truck, text: 'پورے پاکستان میں 3,000 روپے سے زائد کے آرڈر پر مفت ڈلیوری' },
+    { icon: ShieldCheck, text: 'اوپن پارسل گارنٹی - پہلے پارسل کھولیں پھر کیش دیں' },
+    { icon: Sparkles, text: '100% خالص دیسی گھی، سدر بیری شہد، سلاجیت اور چکوال ریوڑی' },
+    { icon: Gift, text: 'جاز کیش / ایزی پیسہ / بینک ایڈوانس پر 5% فوری رعایت' },
+    { icon: CheckCircle2, text: 'بغیر کسی کیمیکل یا ملاوٹ کے خالص قدرتی تیاری' },
+  ];
+
+  const itemsEn = [
+    { icon: Truck, text: 'Free Express Delivery across Pakistan on orders above Rs. 3,000!' },
+    { icon: ShieldCheck, text: 'Open Parcel Guarantee - Inspect parcel before paying cash' },
+    { icon: Sparkles, text: '100% Pure Chakwal Rewri, Sidr Honey, Shilajit & Desi Ghee' },
+    { icon: Gift, text: 'Extra 5% OFF on Advance Payment via JazzCash / Easypaisa / Bank' },
+    { icon: CheckCircle2, text: 'Zero chemicals, zero artificial additives - Pure Farm Fresh' },
+  ];
+
+  const items = isUrdu ? itemsUrdu : itemsEn;
+
+  // Duplicate items twice to form a seamless infinite loop with translateX(-50%)
+  const duplicatedItems = [...items, ...items];
 
   return (
-    <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 text-xs py-2 px-3 sm:px-6 border-b border-amber-800/30">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-4">
-        {/* Left / Center Announcement Text */}
-        <div className="flex items-center justify-center gap-2 text-center text-[11px] sm:text-xs font-medium">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0 hidden xs:inline" />
-          <span className="leading-snug">{t.announcement}</span>
-        </div>
-
-        {/* Right side Language Switcher & WhatsApp quick badge */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a
-            href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir%2C%20mujhe%20order%20karna%20hai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 text-amber-300 hover:text-white transition font-medium text-[11px]"
-          >
-            <Phone className="w-3 h-3 text-emerald-400" />
-            <span>0300-1788080</span>
-          </a>
-
-          {/* Language Toggle Pill */}
-          <div className="inline-flex items-center rounded-full bg-white/10 p-0.5 border border-white/15 text-[11px]">
-            <button
-              onClick={() => setLang('ur')}
-              className={`px-2.5 py-0.5 rounded-full transition font-bold ${
-                isUrdu ? 'bg-amber-500 text-amber-950 shadow-sm' : 'text-amber-200/80 hover:text-white'
-              }`}
+    <div
+      className="relative overflow-hidden bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-200 border-b border-amber-800/30 py-2 select-none"
+      title={isUrdu ? 'رکنے کے لیے ماؤس اوپر لائیں' : 'Hover to pause'}
+    >
+      <div className="flex w-max animate-marquee" dir="ltr">
+        {duplicatedItems.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={idx}
+              className="inline-flex items-center gap-2.5 mx-5 sm:mx-8 text-[11px] sm:text-xs font-semibold tracking-wide"
+              dir={isUrdu ? 'rtl' : 'ltr'}
             >
-              اردو
-            </button>
-            <button
-              onClick={() => setLang('en')}
-              className={`px-2.5 py-0.5 rounded-full transition font-semibold ${
-                !isUrdu ? 'bg-amber-500 text-amber-950 shadow-sm' : 'text-amber-200/80 hover:text-white'
-              }`}
-            >
-              English
-            </button>
-          </div>
-        </div>
+              <span className="p-1 rounded-full bg-amber-500/20 text-amber-400 shrink-0">
+                <Icon className="w-3.5 h-3.5" />
+              </span>
+              <span className="whitespace-nowrap text-amber-100/95 font-medium">{item.text}</span>
+              <span className="text-amber-500/50 text-[10px] sm:text-xs select-none">✦</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

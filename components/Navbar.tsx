@@ -22,7 +22,7 @@ import SearchModal from '@/components/SearchModal';
 
 export default function Navbar() {
   const { totalItems, isMounted } = useCart();
-  const { lang, t, isUrdu } = useLanguage();
+  const { lang, setLang, t, isUrdu } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -88,8 +88,8 @@ export default function Navbar() {
               </Link>
             </nav>
 
-            {/* Right: Search, WhatsApp & Cart */}
-            <div className="flex items-center gap-2 sm:gap-4">
+            {/* Right: Search, Language Switcher, WhatsApp & Cart */}
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Search Trigger Button */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -100,12 +100,38 @@ export default function Navbar() {
                 <span className="hidden sm:inline text-stone-300">{isUrdu ? 'تلاش کریں' : 'Search'}</span>
               </button>
 
+              {/* Language Switcher Pill (Instant 1-Tap Toggle) */}
+              <div className="inline-flex items-center rounded-full bg-stone-900/90 p-0.5 border border-amber-500/30 text-[11px] shrink-0 shadow-inner">
+                <button
+                  onClick={() => setLang('ur')}
+                  className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full transition font-bold ${
+                    isUrdu
+                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow'
+                      : 'text-amber-200/80 hover:text-white'
+                  }`}
+                  aria-label="Urdu Language"
+                >
+                  اردو
+                </button>
+                <button
+                  onClick={() => setLang('en')}
+                  className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full transition font-semibold ${
+                    !isUrdu
+                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow'
+                      : 'text-amber-200/80 hover:text-white'
+                  }`}
+                  aria-label="English Language"
+                >
+                  English
+                </button>
+              </div>
+
               {/* Direct WhatsApp Action (Desktop) */}
               <a
                 href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir%2C%20mujhe%20order%20karna%20hai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 text-xs font-bold transition"
+                className="hidden xl:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 text-xs font-bold transition"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
                 <span>0300-1788080</span>
@@ -217,6 +243,41 @@ export default function Navbar() {
 
             {/* Bottom Actions */}
             <div className="pt-6 border-t border-white/10 space-y-3">
+              {/* Language Switcher in Drawer */}
+              <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-xs text-stone-300 font-medium">
+                  {isUrdu ? 'زبان تبدیل کریں' : 'Switch Language'}:
+                </span>
+                <div className="inline-flex items-center rounded-full bg-stone-900 p-0.5 border border-amber-500/30 text-xs">
+                  <button
+                    onClick={() => {
+                      setLang('ur');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`px-3 py-1 rounded-full font-bold transition ${
+                      isUrdu
+                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow'
+                        : 'text-stone-300 hover:text-white'
+                    }`}
+                  >
+                    اردو
+                  </button>
+                  <button
+                    onClick={() => {
+                      setLang('en');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`px-3 py-1 rounded-full font-semibold transition ${
+                      !isUrdu
+                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow'
+                        : 'text-stone-300 hover:text-white'
+                    }`}
+                  >
+                    English
+                  </button>
+                </div>
+              </div>
+
               <a
                 href="https://wa.me/923001788080?text=Assalam%20o%20Alaikum%20Bin%20Nasir"
                 target="_blank"
