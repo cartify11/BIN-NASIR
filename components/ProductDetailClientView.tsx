@@ -13,7 +13,6 @@ import {
   ChevronRight,
   ChevronLeft,
   ShoppingBag,
-  Zap,
   Plus,
   Minus,
   Check,
@@ -307,9 +306,8 @@ export default function ProductDetailClientView({
 
             <button
               onClick={handleBuyNow}
-              className="py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-600/25 transition active:scale-95"
+              className="py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-xl shadow-amber-600/25 transition active:scale-95"
             >
-              <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
               <span>{t.buyNowCod}</span>
             </button>
           </div>

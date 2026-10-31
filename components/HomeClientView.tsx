@@ -18,7 +18,6 @@ import {
   Gift,
   HelpCircle,
   Eye,
-  Zap,
 } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import CategoryCard from '@/components/CategoryCard';
@@ -259,7 +258,7 @@ export default function HomeClientView({
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-stone-200 pb-4">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 uppercase tracking-wider">
-              <Zap className="w-3.5 h-3.5 fill-amber-700 text-amber-700" />
+              <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
               <span>{isUrdu ? 'مقبول ترین' : 'Customer Favorites'}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-serif font-black text-stone-900">

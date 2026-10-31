@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ShoppingBag, Check, Plus, Minus, Zap } from 'lucide-react';
+import { ShoppingBag, Check, Plus, Minus } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/lib/cart-context';
 import { useLanguage } from '@/lib/language-context';
@@ -108,9 +108,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         <button
           onClick={handleBuyNow}
           disabled={isOutOfStock}
-          className="py-4 px-6 rounded-2xl font-bold text-sm bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white shadow-xl shadow-amber-700/25 flex items-center justify-center gap-2.5 transition-all duration-200 active:scale-95 disabled:opacity-50"
+          className="py-4 px-6 rounded-2xl font-bold text-sm bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white shadow-xl shadow-amber-700/25 flex items-center justify-center transition-all duration-200 active:scale-95 disabled:opacity-50"
         >
-          <Zap className="w-4 h-4 fill-amber-300 text-amber-300" />
           <span>{t.buyNowCod}</span>
         </button>
       </div>

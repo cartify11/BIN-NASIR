@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShoppingBag, Zap, Check, Eye } from 'lucide-react';
+import { ShoppingBag, Check, Eye } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/lib/cart-context';
 import { useLanguage } from '@/lib/language-context';
@@ -132,9 +132,8 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
             <Link
               href={`/product/${product.slug}`}
-              className="py-2.5 px-1.5 sm:px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm transition active:scale-95 text-center"
+              className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition active:scale-95 text-center"
             >
-              <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300 shrink-0" />
               <span className="whitespace-nowrap text-[11px] sm:text-xs leading-none">{t.buyNowCod}</span>
             </Link>
           </div>
